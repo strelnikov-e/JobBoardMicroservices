@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: account-service
+  data:
+    mongodb:
+      uri: mongodb+srv://evstrelnikov:root@joblistingcluster.hoojkco.mongodb.net/?retryWrites=true&w=majority
+      database: accounts
