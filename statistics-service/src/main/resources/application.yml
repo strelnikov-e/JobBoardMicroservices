@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: statistics-service
+  data:
+    mongodb:
+      uri: mongodb+srv://evstrelnikov:root@joblistingcluster.hoojkco.mongodb.net/?retryWrites=true&w=majority
+      database: statistics
