@@ -1,7 +1,7 @@
 package com.strelnikov.jobservice.repository;
 
 import com.strelnikov.jobservice.TestDataUtils;
-import com.strelnikov.jobservice.entity.Post;
+import com.strelnikov.jobservice.entity.Job;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,17 +12,17 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @DataMongoTest
-public class PostRepositoryTest {
+public class JobRepositoryTest {
 
     @Autowired
     PostRepository repository;
 
     @Test
     public void shouldFindPostById() {
-        Post stub = TestDataUtils.create();
+        Job stub = TestDataUtils.create();
         repository.save(stub);
 
-        Post found = repository.findById(stub.getId()).get();
+        Job found = repository.findById(stub.getId()).get();
         assertEquals(stub.getId(), found.getId());
         assertEquals(stub.getFirstName(), found.getFirstName());
         assertEquals(stub.getEmail(), found.getEmail());

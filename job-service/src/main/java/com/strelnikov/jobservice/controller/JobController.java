@@ -1,7 +1,7 @@
 package com.strelnikov.jobservice.controller;
 
-import com.strelnikov.jobservice.entity.Post;
-import com.strelnikov.jobservice.service.PostService;
+import com.strelnikov.jobservice.entity.Job;
+import com.strelnikov.jobservice.service.JobService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -9,28 +9,28 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/posts")
+@RequestMapping("/jobs")
 @CrossOrigin(origins = "http://localhost:5173")
-public class PostController {
+public class JobController {
 
-    private PostService postService;
+    private JobService jobService;
 
-    public PostController(PostService postService) {
-        this.postService = postService;
+    public JobController(JobService jobService) {
+        this.jobService = jobService;
     }
 
     // Returns all the post
     // To add pagination and exclude description field
     @GetMapping
-    public Page<Post> allPosts(Pageable pageable) {
-        return postService.findAll(pageable);
+    public Page<Job> allPosts(Pageable pageable) {
+        return jobService.findAll(pageable);
     }
 
     // Get full post description
     // To add exception for id not found
     @GetMapping("/{id}")
-    public ResponseEntity<Post> getPost(@PathVariable String id) {
-        Post post = postService.findById(id).orElse(null);
+    public ResponseEntity<Job> getPost(@PathVariable String id) {
+        Job post = jobService.findById(id).orElse(null);
         if (post == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -38,19 +38,19 @@ public class PostController {
     }
 
     @PostMapping
-    public ResponseEntity<Post> save(@RequestBody Post toSave) {
-        Post post = postService.save(toSave);
+    public ResponseEntity<Job> save(@RequestBody Job toSave) {
+        Job post = jobService.save(toSave);
         return new ResponseEntity<>(post, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Post> update(@PathVariable String id, @RequestBody Post post) {
-        return new ResponseEntity<>(postService.update(id, post), HttpStatus.OK);
+    public ResponseEntity<Job> update(@PathVariable String id, @RequestBody Job post) {
+        return new ResponseEntity<>(jobService.update(id, post), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable String id) {
-        postService.delete(id);
+        jobService.delete(id);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }

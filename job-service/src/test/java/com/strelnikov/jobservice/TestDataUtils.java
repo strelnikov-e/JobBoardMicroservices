@@ -1,11 +1,11 @@
 package com.strelnikov.jobservice;
 
-import com.strelnikov.jobservice.entity.Post;
+import com.strelnikov.jobservice.entity.Job;
 
 public class TestDataUtils {
 
-    public static Post create() {
-        Post post = new Post();
+    public static Job create() {
+        Job job = new Job();
         post.setFirstName("First");
         post.setLastName("Name");
         post.setCompanyName("Company");

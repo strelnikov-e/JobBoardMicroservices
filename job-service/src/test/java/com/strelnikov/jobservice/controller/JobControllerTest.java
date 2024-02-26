@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PostControllerTest {
+class JobControllerTest {
 
     @Test
     void allPosts() {
