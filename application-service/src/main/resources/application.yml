@@ -1,9 +1,0 @@
-server:
-  port: 8200
-spring:
-  application:
-    name: application-service
-  data:
-    mongodb:
-      uri: mongodb+srv://evstrelnikov:root@joblistingcluster.hoojkco.mongodb.net/?retryWrites=true&w=majority
-      database: applications
