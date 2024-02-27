@@ -1,0 +1,11 @@
+server:
+  servlet:
+    context-path: /jobs
+  port: 8000
+spring:
+  application:
+    name: job-service
+  data:
+    mongodb:
+      uri: mongodb+srv://evstrelnikov:root@joblistingcluster.hoojkco.mongodb.net/?retryWrites=true&w=majority
+      database: joblist
