@@ -1,19 +1,23 @@
 spring:
-  cloud:
-    gateway:
-      routes:
-      - id: user-service
-        uri: lb://user-service
-        predicates:
-          - Path=/users/**
-      - id: job-service
-        uri: lb://job-service
-        predicates:
-          - Path=/jobs/**
-      - id: application-service
-        uri: lb://application-service
-        predicates:
-          - Path=/applications/**
+  security:
+    oauth2:
+      client:
+        registration:
+          spring:
+            provider: spring
+            client-id: client
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            client-authentication-method: client_secret_basic
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope:
+              - user.read
+              - openid
+        provider:
+          spring:
+            issuer-uri: http://localhost:9000
+
+
 management:
   endpoints:
     web:
