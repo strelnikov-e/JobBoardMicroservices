@@ -1,8 +1,7 @@
 server:
   port: 9000
-
-logging:
-  level:
-    org:
-      springframework:
-        security: trace
+spring:
+  application:
+    name: auth-service
+  config:
+    import: configserver:http://root:password@localhost:8888/
