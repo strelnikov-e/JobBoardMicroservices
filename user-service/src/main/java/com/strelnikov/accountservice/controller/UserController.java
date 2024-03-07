@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -26,6 +27,7 @@ public class UserController {
      * @param pageable - accepts pagination and soring parameters
      * @return page of accounts and Http status 200 - OK.
      */
+    @PreAuthorize("#oauth2.hasScope('server')")
     @GetMapping
     public Page<User> allAccounts(Pageable pageable) {
         return userService.findAll(pageable);
