@@ -1,0 +1,15 @@
+server:
+  port: 9000
+logging:
+  level:
+    org.springframework.security: trace
+spring:
+  security:
+    user:
+      name: user
+      password: password
+
+  data:
+    mongodb:
+      uri: mongodb+srv://evstrelnikov:root@joblistingcluster.hoojkco.mongodb.net/?retryWrites=true&w=majority
+      database: authentication

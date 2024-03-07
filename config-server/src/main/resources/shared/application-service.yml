@@ -1,7 +1,7 @@
 server:
   servlet:
-    context-path: /applications
-  port: 8200
+    context-path: /api/applications
+  port: 8083
 spring:
   application:
     name: application-service
@@ -9,3 +9,8 @@ spring:
     mongodb:
       uri: mongodb+srv://evstrelnikov:root@joblistingcluster.hoojkco.mongodb.net/?retryWrites=true&w=majority
       database: applications
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://auth-service
