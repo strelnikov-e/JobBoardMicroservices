@@ -1,0 +1,33 @@
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.security: trace
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          gateway:
+            provider: auth-service
+            client-id: gateway
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            client-authentication-method: client_secret_basic
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid, user.read
+        provider:
+          auth-service:
+            issuer-uri: http://localhost:9000
+
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    health:
+#      show-details: always
+#    gateway:
+#      enabled: true

@@ -1,12 +1,6 @@
 server:
-  servlet:
-    context-path: /api/jobs
   port: 8082
 spring:
-  application:
-    name: job-service
-  account-service:
-    url: http://localhost:8080/accounts
   security:
     oauth2:
       resourceserver:
@@ -16,3 +10,6 @@ spring:
     mongodb:
       uri: mongodb+srv://evstrelnikov:root@joblistingcluster.hoojkco.mongodb.net/?retryWrites=true&w=majority
       database: joblist
+logging:
+  level:
+    org.springframework.security: trace

@@ -1,16 +1,25 @@
 server:
-  servlet:
-    context-path: /api/users
   port: 8081
 spring:
-  application:
-    name: user-service
-  data:
-    mongodb:
-      uri: mongodb+srv://evstrelnikov:root@joblistingcluster.hoojkco.mongodb.net/?retryWrites=true&w=majority
-      database: users
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://auth-service
+          issuer-uri: http://localhost:9000
+  datasource:
+    url: jdbc:postgresql://localhost:5430/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+logging:
+  level:
+    org.springframework.security: trace
+#  data:
+#    mongodb:
+#      uri: mongodb+srv://evstrelnikov:root@joblistingcluster.hoojkco.mongodb.net/?retryWrites=true&w=majority
+#      database: users

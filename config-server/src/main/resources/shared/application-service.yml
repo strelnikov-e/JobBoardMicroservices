@@ -1,6 +1,4 @@
 server:
-  servlet:
-    context-path: /api/applications
   port: 8083
 spring:
   application:
@@ -13,4 +11,4 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://auth-service
+          issuer-uri: http://localhost:9000
